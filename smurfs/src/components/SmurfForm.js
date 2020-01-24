@@ -43,7 +43,7 @@ const SmurfForm = (props) => {
                     onChange={handleChanges}
                     value={newSmurf.height}
                 />
-                <button type="submit">Add a Blue Smurf</button>
+                <button className="btn-add" type="submit">Add a Blue Smurf</button>
             </form>
         </div>
     );
