@@ -6,29 +6,30 @@ import SmurfForm from "./SmurfForm";
 
 const List = props =>{
     const initSmurfs = props.getSmurfs
-    useEffect(() =>{
-        
-    }, [initSmurfs])
+  useEffect (() => {
+    initSmurfs()
+  }, [initSmurfs])
 
-    return (
-        <div>
-            <div>
-                {props.smurf.map(smurf =>(
-                    <p key={smurf.id}>
-                        {smurf.name} - Age: {smurf.age}, Height: {smurf.height}
-                    </p>
-                ))}
-            </div>
-            <SmurfForm addSmurfs = {props.addSmurfs}/>
-        </div>
-    );
+  return (
+    <div>
+      <div>
+        {props.smurf.map(smurf => (
+          <p key={smurf.id}>
+            {smurf.name} - Age: {smurf.age} , Height: {smurf.height}
+          </p>
+        ))}
+      </div>
+      <SmurfForm addSmurf={props.addSmurf} />
+    </div>
+  );
 };
 
-const mapStateToProps = state =>{
-    return({
-        smurf: state.smurf,
-        error:state.error
-    })
-};
+const mapStateToProps = state => {
+  console.log(state)
+  return ({
+    smurf: state.smurf,
+    error: state.error
+  }
+  )};
 
-export default connect (mapStateToProps,{getSmurfs, addSmurf})(List);
+export default connect(mapStateToProps, { getSmurfs, addSmurf })(List);

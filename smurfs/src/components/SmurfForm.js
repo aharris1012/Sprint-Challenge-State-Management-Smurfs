@@ -1,25 +1,23 @@
 import React, { useState } from 'react';
 
 
+
 const SmurfForm = (props) => {
     const [newSmurf, setNewSmurf] = useState({
         name: '',
         age: '',
         height: ''
     });
+    console.log(newSmurf);
+    console.log(props);
 
     const handleSubmit = e => {
         e.preventDefault();
-        addSmurf(newSmurf);
-        setNewSmurf({
-            name: "",
-            age: "",
-            height:""
-        });
+        props.addSmurf(newSmurf);
     };
 
     const handleChanges = e => {
-
+        console.log("handleChanges");
         setNewSmurf({ ...newSmurf, [e.target.name]: e.target.value });
     };
 
@@ -45,10 +43,10 @@ const SmurfForm = (props) => {
                     onChange={handleChanges}
                     value={newSmurf.height}
                 />
-                <button type="submit">Add the Blue Smurf</button>
+                <button type="submit">Add a Blue Smurf</button>
             </form>
         </div>
     );
 };
 
-export default SmurfForm; 
+export default SmurfForm;
